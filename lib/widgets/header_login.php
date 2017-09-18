@@ -46,7 +46,7 @@ class HeaderLoginWidget extends \WP_Widget
                     <?php $current_user = wp_get_current_user(); ?>
                     <?php if(!empty($current_user->user_login)): ?>
                         <li class="header-main-top-sublist-item">
-                            <a class="header-main-top-sublist-link" href="<?php echo  bp_loggedin_user_domain( get_current_user_id() ) . 'profile/'; ?>"><?php _e('My account', 'badgefactor-theme'); ?></a>
+                            <a class="header-main-top-sublist-link <?php !bp_is_home() ?: print 'current'; ?>" href="<?php echo  bp_loggedin_user_domain( get_current_user_id() ) . 'profile/'; ?>"><?php _e('My account', 'badgefactor-theme'); ?></a>
                         </li>
                     <?php endif; ?>
                     <li class="header-main-top-sublist-item">
