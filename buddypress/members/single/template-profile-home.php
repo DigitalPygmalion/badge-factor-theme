@@ -1,11 +1,14 @@
 <?php
-
-
  $user_id = get_current_user_id();
-
-
 ?>
-
+<?php
+/**
+ * BadgeFactore
+ *
+ * @since 1.1.0
+ */
+do_action( 'bf_before_profile_content' );
+?>
 <section>
     <ul class="home-page-development-button-list">
         <li class="home-page-development-button-list-item">
@@ -21,9 +24,7 @@
     <span class="separator-prefix"></span>
     <h3 class="profile-members-badges-heading-title"><?php _e('My obtained badges', 'badgefactor-theme'); ?></h3>
 </div>
-
 <ul class="profile-members-badges-list">
-
     <?php
     $htmlTemplates = '';
     foreach ($GLOBALS['badgefactor']->get_user_achievements($user_id) as $achievement) {
@@ -56,3 +57,11 @@
     echo $htmlTemplates;
     ?>
 </ul>
+<?php
+/**
+ * BadgeFactore
+ *
+ * @since 1.1.0
+ */
+do_action( 'bf_after_profile_content' );
+?>

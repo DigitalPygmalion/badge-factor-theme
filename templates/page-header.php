@@ -205,3 +205,6 @@
         </h1>
     </section>
 <?php endif; ?>
+<?php
+do_action( 'bf_display_notice' );
+ ?>
