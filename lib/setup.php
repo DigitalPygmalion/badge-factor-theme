@@ -187,21 +187,20 @@ function init_xprofile_fields(){
   if(is_null($result->id)){
     //xprofile_insert_field($field);
   }
-  function xprofile_get_field( $field, $user_id = null, $get_data = true ) {
+}
+add_action('plugins_loaded',__NAMESPACE__ . '\\init_xprofile_fields');
+
+function xprofile_get_field( $field, $user_id = null, $get_data = true ) {
     if ( $field instanceof BP_XProfile_Field ) {
-      $_field = $field;
+        $_field = $field;
     } elseif ( is_object( $field ) ) {
-      $_field = new BP_XProfile_Field();
-      $_field->fill_data( $field );
+        $_field = new BP_XProfile_Field();
+        $_field->fill_data( $field );
     } else {
-      $_field = BP_XProfile_Field::get_instance( $field, $user_id, $get_data );
+        $_field = BP_XProfile_Field::get_instance( $field, $user_id, $get_data );
     }
     if ( ! $_field ) {
-      return null;
+        return null;
     }
     return $_field;
-  }
-
-
 }
-add_action('init',__NAMESPACE__ . '\\init_xprofile_fields');
